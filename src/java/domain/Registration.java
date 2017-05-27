@@ -6,6 +6,10 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 public class Registration {
 
+    @NotEmpty
+    @Size(min=3, max=60)
+    private String firstName;
+    
     @Pattern(regexp = "^[a-zA-Z]+", 
               message = "Username must be alphanumeric with no spaces")
     //@Pattern(regexp = "^[a-zA-Z]+", message="{validation.userName.Pattern.message}")
@@ -16,12 +20,17 @@ public class Registration {
     //@Size(min=4, max=20, message="{validation.Size.message}")
     private String password;
     
-    
-    
     @NotEmpty
     private String confirmPassword;
-   
-    
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
     public void setUserName(String userName) {
         this.userName = userName;
     }

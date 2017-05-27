@@ -18,6 +18,11 @@
         <form:form method="Post" action="registration.htm"
                    modelAttribute="registration">
 
+            <p><label><spring:message code="label_contact_first_name"></spring:message>*</label>
+                <form:input path="firstName" size = "20"/>&nbsp;
+                <form:errors path="firstName" cssClass="error"/>
+            </p>
+            
             <p><label>User Name:</label>
                 <form:input path="userName" size = "20"/>&nbsp;
                 <form:errors path="userName" cssClass="error"/>
