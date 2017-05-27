@@ -6,18 +6,18 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 public class Registration {
 
-    @NotEmpty
-    @Size(min=3, max=60)
+    //This will not override the more general NotEmpty property in converter.properties!
+    @NotEmpty(message="{validation.firstname.NotEmpty.message}")
+    @Size(min=3, max=60, message="{validation.Size.message}")
     private String firstName;
     
-    @Pattern(regexp = "^[a-zA-Z]+", 
-              message = "Username must be alphanumeric with no spaces")
-    //@Pattern(regexp = "^[a-zA-Z]+", message="{validation.userName.Pattern.message}")
+    
+    @Pattern(regexp = "^[a-zA-Z]+", message="{validation.userName.Pattern.message}")
     private String userName;
     
     @NotEmpty
-    @Size(min = 4, max = 20)
-    //@Size(min=4, max=20, message="{validation.Size.message}")
+    //This will not override the more general Size property in converter.properties!
+    @Size(min=4, max=20, message="{validation.Size.message}")
     private String password;
     
     @NotEmpty
